@@ -29,7 +29,6 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "inquirer": "^6.2.1",
-    "javascript-stringify": "^1.6.0",
     "micromatch": "^3.1.10",
     "stylelint": "^9.10.1",
     "stylelint-codeframe-formatter": "^1.0.4",
