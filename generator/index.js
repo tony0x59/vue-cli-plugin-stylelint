@@ -2,8 +2,6 @@ const chalk = require('chalk');
 const lint = require('../lint');
 
 module.exports = (api, options = {}) => {
-  console.log('options:' + JSON.stringify(options));
-
   const { overwriteConfig } = options;
   if (overwriteConfig === 'abort') {
     api.exitLog(chalk`{yellow Plugin setup successfully cancelled}`, 'warn');
@@ -28,6 +26,7 @@ module.exports = (api, options = {}) => {
     },
     stylelint: {
       root: true,
+      rules: {}
     },
   };
 
