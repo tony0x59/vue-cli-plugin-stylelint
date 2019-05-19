@@ -51,6 +51,25 @@ module.exports = (api, options = {}) => {
     Object.assign(pkg.stylelint, config);
   }
 
+  // add plugin stylelint-no-unsupported-browser-features
+  const { checkBrowserSupportFeatures } = options;
+  if (checkBrowserSupportFeatures) {
+    pkg.stylelint.plugins = ["stylelint-no-unsupported-browser-features"]
+    pkg.stylelint.rules = {
+      "plugin/no-unsupported-browser-features": [true, {
+        "severity": "warning",
+        "ignore": ["rem"]
+      }]
+    }
+    Object.assign(pkg.devDependencies, {
+      "stylelint-no-unsupported-browser-features": "^3.0.2"
+    });
+  }
+  
+  // add custom rules
+  const { rules = {} } = options;
+  Object.assign(pkg.stylelint.rules, rules)
+
   if (lintStyleOn.includes('commit')) {
     Object.assign(pkg.devDependencies, {
       'lint-staged': '^6.0.0',
