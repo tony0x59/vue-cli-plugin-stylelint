@@ -2,7 +2,7 @@ const chalk = require('chalk');
 const lint = require('../lint');
 
 module.exports = (api, options = {}) => {
-  console.log('options:' + options);
+  console.log('options:' + JSON.stringify(options));
 
   const { overwriteConfig } = options;
   if (overwriteConfig === 'abort') {
