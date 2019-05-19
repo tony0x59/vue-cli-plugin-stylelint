@@ -2,6 +2,8 @@ const chalk = require('chalk');
 const lint = require('../lint');
 
 module.exports = (api, options = {}) => {
+  console.log('options:' + options);
+
   const { overwriteConfig } = options;
   if (overwriteConfig === 'abort') {
     api.exitLog(chalk`{yellow Plugin setup successfully cancelled}`, 'warn');
